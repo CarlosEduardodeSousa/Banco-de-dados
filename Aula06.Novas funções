@@ -1,0 +1,32 @@
+--FUNÇÕES DE CARACTERES
+
+--FUNÇÃO LOWER: Converte todos os caracteres para minúscula
+SELECT LOWER(ENAME) FROM SCOTT.EMP;
+
+--FUNÇÃO UPPER: Converte todos os caracteres para maiúscula.
+SELECT UPPER(ENAME) FROM SCOTT.EMP;
+
+--FUNÇÃO SUBSTR: Retorna a subsequência de C com início na posição M com N caracteres, e corta alguns caracteres.
+--Selecionar os empregados que tenham o nome iniciado pela letra J;
+SELECT * FROM SCOTT.EMP WHERE SUBSTR (ENAME,1,1) = 'J';
+
+--Exibir todos os empregados com a 2ª letra do nome igual a A.
+SELECT * FROM SCOTT.EMP WHERE SUBSTR (ENAME,2,1) = 'A';
+
+SELECT SUBSTR (JOB_ID,4) FROM HR.EMPLOYEES; -- CORTA CARACTERES DA TABELA
+
+--FUNÇÃO LENGTH: Retorna um números de caracteres
+SELECT LENGTH (ENAME) FROM SCOTT.EMP; -- MOSTRA O TOTAL DE CARACTERES NUM CAMPO
+
+-- CONCATENAÇÃO: Representado pelas ||
+SELECT FIRST_NAME || '  ' || LAST_NAME AS "NOME COMPLETO"FROM HR.EMPLOYEES;
+
+SELECT FIRST_NAME AS "NOME", LAST_NAME AS "SOBRENOME", PHONE_NUMBER AS "TELEFONE" FROM HR.EMPLOYEES;
+
+-- FUNÇÃO GERAL NVL:  converte um nulo em um valor definido
+
+SELECT ENAME, JOB, NVL(COMM, 0) FROM SCOTT.EMP; -- Nesse caso se o valor for nulo vai retornar 0
+
+SELECT ENAME, JOB, NVL(COMM, 10) FROM SCOTT.EMP; -- Nesse caso se o valor for nulo vai retornar 10 
+
+SELECT ENAME, JOB, NVL(COMM, 0) FROM SCOTT.EMP WHERE NVL(COMM, 0) = 0;
